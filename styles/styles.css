@@ -3,13 +3,14 @@
     padding: 0;
     margin: 0;
 }
-
+body{
+    margin-left: 2rem;
+}
 :root{
     /*Colores de la interfaz*/
     --MsOscuro: #000080;
     --MsClaro: #0080BF;
 }
-
 .logoMS{
     width: 200px;
 }
