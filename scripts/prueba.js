@@ -14,20 +14,20 @@ const costumerTable = document.getElementById('costumers-table')
 //      mostrar(e)
 //  })
 
-readCostumer.addEventListener('click', evt => {
+readCostumer.addEventListener('click', () => {
     const xhr= new XMLHttpRequest()
     var url= 'http://manchasoft.ddns.net:4325/MCS/dbGestion_dat/v1/MG_ENTIDAD?api_key=123456'
     xhr.open('GET', url, true)
     
+    // Que hacer con la info.
     xhr.addEventListener('load', e => {
         var resultado = e.target.response
         var oJSON= JSON.parse(resultado)
         var totalLista = oJSON.total_count
-
-        for ( nReg = 0; nReg < totalLista; nReg++ ) {
+        
+        for ( let nReg = 0; nReg < totalLista; nReg++ ) {
             var oRegistro= oJSON.mg_entidad[nReg]
             var nomCli= oRegistro.name
-            
             //Añadir al HTML principal
             var cliente = document.createElement('p')
             cliente.textContent = nomCli
@@ -37,6 +37,8 @@ readCostumer.addEventListener('click', evt => {
     })
     xhr.send()
     
+    // COMO SE HACE EN VELNEO
+
     // if ( (xhr.errorCode==0) && (xhr.status == 200) ) {
     //     var resultado= xhr.response;
     //     var oJSON= JSON.parse(resultado);
@@ -45,7 +47,6 @@ readCostumer.addEventListener('click', evt => {
     //     for ( nReg = 0; nReg < totalLista; nReg++ ) {
     //         var oRegistro= oJSON.mg_entidad[nReg];
     //         var nomCli= oRegistro.name
-    //         console.log(nomCli)
     //     }
     // }
 })
