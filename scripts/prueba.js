@@ -1,44 +1,21 @@
-const readCostumer = document.getElementById('BtnReadCostumer')
+const readCustomer = document.getElementById('BtnReadCustomer')
 const readArticles = document.getElementById('BtnReadArticles')
 
-const costumerTable = document.getElementById('costumers-table')
+const customerTable = document.getElementById('customers-table')
 
-// const mostrar = e => {
-//      console.log(e.target.innerText)
-//  }
-
-//  readCostumer.addEventListener('click', e => {
-//      mostrar(e)
-//  })
-// readArticles.addEventListener('click', e => {
-//      mostrar(e)
-//  })
-
-readCostumer.addEventListener('click', () => {
+readCustomer.addEventListener('click', () => {
     const xhr= new XMLHttpRequest()
     var url= 'http://manchasoft.ddns.net:4325/MCS/dbGestion_dat/v1/MG_ENTIDAD?api_key=123456'
     xhr.open('GET', url, true)
     
     // Que hacer con la info.
     xhr.addEventListener('load', e => {
-        var resultado = e.target.response
-        var oJSON= JSON.parse(resultado)
-        var totalLista = oJSON.total_count
-        
-        for ( let nReg = 0; nReg < totalLista; nReg++ ) {
-            var oRegistro= oJSON.mg_entidad[nReg]
-            var nomCli= oRegistro.name
-            //Añadir al HTML principal
-            var cliente = document.createElement('p')
-            cliente.textContent = nomCli
-
-            costumerTable.appendChild(cliente)
-        } 
+        const result = JSON.parse(e.target.responseText)
+        //console.log(result.mg_entidad)
+        drawInfo(result.mg_entidad)
     })
     xhr.send()
-    
     // COMO SE HACE EN VELNEO
-
     // if ( (xhr.errorCode==0) && (xhr.status == 200) ) {
     //     var resultado= xhr.response;
     //     var oJSON= JSON.parse(resultado);
@@ -50,3 +27,15 @@ readCostumer.addEventListener('click', () => {
     //     }
     // }
 })
+
+const drawInfo = customers => {
+    customerTable.innerHTML= ''
+    const fragment= document.createDocumentFragment()
+    customers.forEach(customer => {
+        //Añadir al HTML principal
+        let clientName = document.createElement('p')
+        clientName.textContent = customer.name
+        fragment.appendChild(clientName)
+    });
+    customerTable.appendChild(fragment)
+}
