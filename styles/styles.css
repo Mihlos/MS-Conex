@@ -4,16 +4,44 @@
     margin: 0;
 }
 body{
-    margin-left: 2rem;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 :root{
     /*Colores de la interfaz*/
     --MsOscuro: #000080;
     --MsClaro: #0080BF;
 }
-.logoMS{
-    width: 200px;
+.app{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:'header header'
+                        'aside  main';
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 100px 1fr;
+    
 }
+.logoMS{
+    width: 100px;
+}
+aside{
+    grid-area: aside;
+    background-color: var(--MsOscuro);
+    padding-left: 1rem;
+    padding-top: 50px;
+}
+header{
+    grid-area: header;
+    background-color: var(--MsOscuro);
+    padding-left: 1rem;
+}
+main{
+    grid-area: main;
+    padding-left: 1rem;
+}
+
 .button{
     background-color: var(--MsOscuro);
     line-height: 1.6;

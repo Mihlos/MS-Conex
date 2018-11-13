@@ -1,5 +1,4 @@
 const readCustomer = document.getElementById('BtnReadCustomer')
-const readArticles = document.getElementById('BtnReadArticles')
 
 const customerTable = document.getElementById('customers-table')
 
@@ -28,6 +27,7 @@ readCustomer.addEventListener('click', () => {
     // }
 })
 
+//Pintado de los datos con fragmentos.
 const drawInfo = customers => {
     customerTable.innerHTML= ''
     const fragment= document.createDocumentFragment()

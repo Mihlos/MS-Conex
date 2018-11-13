@@ -8,18 +8,20 @@
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
-        <img class="logoMS" src="images/Logo-MS.png" alt="Logo ManchaSoft">
-        <h1>Lectura de datos de MS ERP</h1>
-        <button id="BtnReadCustomer" class="button">Leer clientes</button>
-        <button id="BtnReadArticles" class="button">Leer artículos</button>
-        
-        <div id="customers-table" class="customers-table">
-
+        <div class="app">
+            <header>
+                <img class="logoMS" src="images/Logo-MS.png" alt="Logo ManchaSoft">
+            </header>
+            <aside>
+                <button id="BtnReadCustomer" class="button">Leer clientes</button>
+            </aside>
+            <main>
+                <h1>Lectura de datos de MS ERP</h1>
+                <div id="customers-table" class="customers-table">
+                </div>
+            </main>      
         </div>
-        <div id="articles-table">
-
-        </div>
-        
-        <script src="scripts/prueba.js"></script>
+        <!-- <script src="scripts/prueba-XHRyFragment.js"></script> -->
+        <script src="scripts/prueba-FETCHyTemplate.js"></script>    
     </body>
 </html>
