@@ -1,6 +1,6 @@
 const readCustomer = document.getElementById('BtnReadCustomer')
 
-const customerTable = document.getElementById('customers-table')
+const DataTable = document.getElementById('customers-table')
 
 readCustomer.addEventListener('click', () => {
     const xhr= new XMLHttpRequest()
@@ -29,7 +29,7 @@ readCustomer.addEventListener('click', () => {
 
 //Pintado de los datos con fragmentos.
 const drawInfo = customers => {
-    customerTable.innerHTML= ''
+    DataTable.innerHTML= ''
     const fragment= document.createDocumentFragment()
     customers.forEach(customer => {
         //Añadir al HTML principal
@@ -37,5 +37,5 @@ const drawInfo = customers => {
         clientName.textContent = customer.name
         fragment.appendChild(clientName)
     });
-    customerTable.appendChild(fragment)
+    DataTable.appendChild(fragment)
 }
